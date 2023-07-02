@@ -6,6 +6,8 @@ import ProjectsList from 'src/components/ProjectsList.astro';
 ---
 
 <PageLayout>
-  <PageMeta title={`Projects | ${SITE_TITLE}`} slot="meta" />
-  <ProjectsList />
+  <Fragment slot="main">
+    <PageMeta title={`Projects | ${SITE_TITLE}`} slot="meta" />
+    <ProjectsList />
+  </Fragment>
 </PageLayout>

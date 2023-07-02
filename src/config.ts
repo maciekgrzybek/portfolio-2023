@@ -3,8 +3,8 @@
 
 export const SITE_TITLE = 'Maciek Grzybek';
 export const SITE_DESCRIPTION =
-  'Welcome to my blog! I write about modern web development.';
-export const TWITTER_HANDLE = '@yourtwitterhandle';
+  'I’m a software engineer with ❤️ for TypeScript, React and Node.';
+export const TWITTER_HANDLE = '';
 export const MY_NAME = 'Maciek Grzybek';
 
 // setup in astro.config.mjs
