@@ -36,7 +36,7 @@ const { meta, og, twitter } = getBlogPostMeta({
   pageUrl: pagePath ? new URL(pagePath, SITE_URL).toString() : undefined,
   authorName: MY_NAME,
   publishDate,
-  ogImageAbsoluteUrl,
+  ogImageAbsoluteUrl: `${SITE_URL}/og/${title}`,
   ogImageAltText,
   ogImageWidth,
   ogImageHeight,

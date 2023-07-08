@@ -17,10 +17,12 @@
     "@astrojs/tailwind": "^4.0.0",
     "@markdoc/markdoc": "^0.3.0",
     "@tailwindcss/typography": "^0.5.9",
+    "@vercel/og": "^0.5.8",
     "astro": "^2.7.2",
     "astro-markdoc-renderer": "0.0.1-alpha.1",
     "globby": "^13.2.1",
     "gray-matter": "^4.0.3",
+    "react": "^18.2.0",
     "slugify": "^1.6.5",
     "tailwindcss": "^3.2.4",
     "zod": "^3.20.2"
