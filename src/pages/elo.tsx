@@ -10,17 +10,23 @@ export const elo = (title?: string) => (
       display: 'flex',
       textAlign: 'center',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       flexDirection: 'column',
       flexWrap: 'nowrap',
+      paddingBottom: '20px',
     }}
   >
     <div
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        justifyItems: 'center',
+        fontSize: 60,
+        fontStyle: 'normal',
+        letterSpacing: '-0.025em',
+        color: 'rgba(62, 51, 85)',
+        marginTop: 30,
+        padding: '0 120px',
+        lineHeight: 1.4,
+        whiteSpace: 'pre-wrap',
+        fontFamily: 'Space Grotesk',
       }}
     ></div>
     <div
@@ -37,6 +43,21 @@ export const elo = (title?: string) => (
       }}
     >
       {title}
+    </div>
+    <div
+      style={{
+        fontSize: 30,
+        fontStyle: 'normal',
+        letterSpacing: '-0.025em',
+        color: 'rgba(62, 51, 85)',
+        marginTop: 30,
+        padding: '0 120px',
+        lineHeight: 1.4,
+        whiteSpace: 'pre-wrap',
+        fontFamily: 'Space Grotesk',
+      }}
+    >
+      Maciek Grzybek - Software Engineer
     </div>
   </div>
 );

@@ -5,6 +5,7 @@ import React from 'react';
 import { elo } from '../elo';
 import { readAll } from 'src/lib/markdoc/read';
 import { blog } from 'src/lib/markdoc/frontmatter.schema';
+import { SITE_URL } from 'src/config';
 
 export const config = {
   runtime: 'edge',
@@ -20,16 +21,11 @@ export const get: APIRoute = async function get({ request, params }) {
   try {
     const font = fetch(
       new URL(
-        '../../../public/fonts/space-grotesk-v13-latin-700.woff',
-        import.meta.url
+        '../../../fonts/space-grotesk-v13-latin-700.woff',
+        new URL(request.url).origin
       )
     ).then((res) => res.arrayBuffer());
-    console.log(
-      new URL(
-        '../../../public/fonts/space-grotesk-v13-latin-700.woff',
-        import.meta.url
-      )
-    );
+
     const fontData = await font;
 
     return new ImageResponse(
