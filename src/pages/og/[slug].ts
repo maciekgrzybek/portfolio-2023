@@ -10,12 +10,21 @@ export const config = {
   runtime: 'edge',
 };
 
-export const get: APIRoute = function get({ request, params }) {
+export const get: APIRoute = async function get({ request, params }) {
+  const posts = await readAllPosts();
+  const mapSlugToTitle = (slug: string) => {
+    const mayebPost = posts.find((post) => post.params.slug === params.slug);
+
+    return mayebPost.props.title;
+  };
   try {
-    return new ImageResponse(elo(params.title ?? 'siema'), {
-      width: 1200,
-      height: 630,
-    });
+    return new ImageResponse(
+      elo(mapSlugToTitle(params.slug ?? '') ?? 'siema'),
+      {
+        width: 1200,
+        height: 630,
+      }
+    );
   } catch (e: any) {
     console.log(`${e.message}`);
     return new Response(`Failed to generate the image`, {
@@ -25,6 +34,10 @@ export const get: APIRoute = function get({ request, params }) {
 };
 
 export async function getStaticPaths() {
+  return readAllPosts();
+}
+
+const readAllPosts = async () => {
   const posts = await readAll({
     directory: 'blog',
     frontmatterSchema: blog,
@@ -35,6 +48,9 @@ export async function getStaticPaths() {
     .filter(({ frontmatter }) => !frontmatter.external);
 
   return filteredPosts.map((post) => {
-    return { params: { title: post.slug } };
+    return {
+      params: { slug: post.slug },
+      props: { title: post.frontmatter.title },
+    };
   });
-}
+};

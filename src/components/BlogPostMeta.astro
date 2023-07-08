@@ -30,13 +30,15 @@ const {
   ogImageHeight,
 } = Astro.props;
 
+const { slug } = Astro.params;
+
 const { meta, og, twitter } = getBlogPostMeta({
   title: title || SITE_TITLE,
   description: description || SITE_DESCRIPTION,
   pageUrl: pagePath ? new URL(pagePath, SITE_URL).toString() : undefined,
   authorName: MY_NAME,
   publishDate,
-  ogImageAbsoluteUrl: `${SITE_URL}/og/${title}`,
+  ogImageAbsoluteUrl: `${SITE_URL}/og/${slug}`,
   ogImageAltText,
   ogImageWidth,
   ogImageHeight,
