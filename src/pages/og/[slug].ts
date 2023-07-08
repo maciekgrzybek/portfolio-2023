@@ -18,11 +18,31 @@ export const get: APIRoute = async function get({ request, params }) {
     return mayebPost.props.title;
   };
   try {
+    const font = fetch(
+      new URL(
+        '../../../public/fonts/space-grotesk-v13-latin-700.woff',
+        import.meta.url
+      )
+    ).then((res) => res.arrayBuffer());
+    console.log(
+      new URL(
+        '../../../public/fonts/space-grotesk-v13-latin-700.woff',
+        import.meta.url
+      )
+    );
+    const fontData = await font;
+
     return new ImageResponse(
       elo(mapSlugToTitle(params.slug ?? '') ?? 'siema'),
       {
         width: 1200,
         height: 630,
+        fonts: [
+          {
+            name: 'Space Grotesk',
+            data: fontData,
+          },
+        ],
       }
     );
   } catch (e: any) {
