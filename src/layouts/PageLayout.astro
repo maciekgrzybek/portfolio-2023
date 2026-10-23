@@ -4,6 +4,7 @@
   - pages/index.astro
   - pages/blog.astro
   - pages/projects.astro
+  - pages/swiatlo-w-modlitwie-policy.astro
 */
 
 // Import the global.css file here so that it is included on
@@ -15,10 +16,16 @@ import ThemeScript from "./ThemeScript.astro";
 import Favicon from "./Favicon.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+export interface Props {
+  lang?: string;
+}
+
+const { lang = "en" } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html class="theme-bubblegum" lang="en">
+<html class="theme-bubblegum" lang={lang}>
   <head>
     <!-- Global Metadata -->
     <meta charset="utf-8" />
